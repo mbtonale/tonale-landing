@@ -63,30 +63,59 @@
       .container { padding: 0 80px; }
     }
 
-    [data-lang] { display: none; }
-    [data-lang="en"] { display: revert; }
+    [data-lang] { display: none !important; }
+    .lang-visible { display: revert !important; }
 
-    .lang-switcher {
-      position: absolute;
-      top: 24px;
-      right: 24px;
-      display: flex;
-      gap: 4px;
-      z-index: 10;
+    /* Navbar */
+
+    .navbar {
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    @media (min-width: 768px) {
-      .lang-switcher { right: 48px; }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .navbar-logo {
+      height: 28px;
+      width: auto;
+    }
+
+    .navbar-name {
+      font-family: var(--font);
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--color-text);
+      letter-spacing: 0.08em;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
     }
 
     .lang-btn {
       font-family: var(--font);
       font-weight: 500;
-      font-size: 14px;
-      padding: 6px 12px;
-      border: 1.5px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      background: var(--color-bg);
+      font-size: 13px;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 6px;
+      background: transparent;
       color: var(--color-text-muted);
       cursor: pointer;
       transition: all 0.2s ease;
@@ -94,67 +123,74 @@
     }
 
     .lang-btn:hover {
-      border-color: var(--color-purple);
       color: var(--color-purple);
     }
 
     .lang-btn.active {
       background: var(--color-purple);
-      border-color: var(--color-purple);
       color: #fff;
+    }
+
+    /* Page wrapper */
+
+    .page-wrapper {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @media (min-width: 768px) {
+      .page-wrapper { padding: 0 48px; }
     }
 
     /* Hero */
 
     .hero {
-      position: relative;
-      padding: 120px 0 80px;
+      padding: 80px 24px 64px;
       text-align: center;
-      background: var(--color-bg);
-      overflow: hidden;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 800px;
-      height: 800px;
-      background: radial-gradient(circle, rgba(108, 92, 231, 0.06) 0%, rgba(0, 206, 201, 0.03) 50%, transparent 70%);
-      pointer-events: none;
+    @media (min-width: 768px) {
+      .hero { padding: 100px 48px 80px; }
     }
 
-    .hero-logo {
-      width: 120px;
+    .hero-icon {
+      width: 360px;
       height: auto;
       margin: 0 auto 40px;
       display: block;
       animation: fadeInUp 0.6s ease both;
     }
 
+    @media (min-width: 768px) {
+      .hero-icon { width: 520px; }
+    }
+
     .hero h1 {
       font-weight: 700;
-      font-size: 36px;
-      line-height: 1.1;
+      font-size: 32px;
+      line-height: 1.15;
       letter-spacing: -0.02em;
       color: var(--color-text);
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       animation: fadeInUp 0.6s ease 0.1s both;
     }
 
     @media (min-width: 768px) {
-      .hero h1 { font-size: 56px; }
+      .hero h1 { font-size: 48px; }
     }
 
     .hero p {
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1.6;
       color: var(--color-text-secondary);
-      max-width: 580px;
-      margin: 0 auto 40px;
+      max-width: 500px;
+      margin: 0 auto 32px;
       animation: fadeInUp 0.6s ease 0.2s both;
+    }
+
+    @media (min-width: 768px) {
+      .hero p { font-size: 18px; }
     }
 
     .btn-primary {
@@ -181,66 +217,92 @@
 
     /* Services */
 
-    .services {
-      padding: 80px 0;
+    .services-wrapper {
       background: var(--color-surface);
+      border-radius: 24px;
+      padding: 48px 24px;
+      max-width: var(--max-width);
+      margin: 0 auto 48px;
+    }
+
+    @media (min-width: 768px) {
+      .services-wrapper { padding: 56px 48px; }
+    }
+
+    @media (min-width: 1200px) {
+      .services-wrapper { margin: 0 80px 48px; }
+    }
+
+    @media (min-width: 1360px) {
+      .services-wrapper { margin: 0 auto 48px; }
     }
 
     .section-heading {
       font-weight: 700;
-      font-size: 28px;
+      font-size: 24px;
       line-height: 1.2;
       letter-spacing: -0.01em;
       text-align: center;
       color: var(--color-text);
-      margin-bottom: 48px;
+      margin-bottom: 12px;
     }
 
     @media (min-width: 768px) {
-      .section-heading { font-size: 36px; }
+      .section-heading { font-size: 32px; }
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto 40px;
+    }
+
+    @media (min-width: 768px) {
+      .section-subtitle { font-size: 16px; }
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 16px;
     }
 
     @media (min-width: 768px) {
-      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
     }
 
     .service-card {
       background: var(--color-bg);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-lg);
-      padding: 32px;
-      box-shadow: var(--shadow);
-      transition: box-shadow 0.25s ease, transform 0.25s ease;
-    }
-
-    .service-card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
     }
 
     .service-icon {
       width: 32px;
       height: 32px;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
       color: var(--color-purple);
     }
 
     .service-card h3 {
-      font-weight: 500;
-      font-size: 24px;
+      font-weight: 700;
+      font-size: 18px;
       line-height: 1.3;
       color: var(--color-text);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .service-card p {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.6;
       color: var(--color-text-secondary);
     }
@@ -248,92 +310,104 @@
     /* About */
 
     .about {
-      padding: 80px 0;
-      background: var(--color-bg);
+      padding: 48px 24px 64px;
       text-align: center;
-    }
-
-    .about-divider {
-      width: 60px;
-      height: 3px;
-      background: var(--gradient);
-      border-radius: 2px;
-      margin: -28px auto 40px;
-    }
-
-    .about p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--color-text-secondary);
-      max-width: 680px;
+      max-width: var(--max-width);
       margin: 0 auto;
     }
 
-    /* Contact & Footer */
-
-    .footer {
-      padding: 80px 0 40px;
-      background: var(--color-dark-bg);
-      text-align: center;
+    @media (min-width: 768px) {
+      .about { padding: 56px 48px 80px; }
     }
 
-    .footer .section-heading {
-      color: var(--color-light-text);
+    .about-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gradient);
+      border-radius: 2px;
+      margin: 16px auto 24px;
     }
 
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 48px;
+    .about p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     @media (min-width: 768px) {
-      .contact-links {
+      .about p { font-size: 16px; }
+    }
+
+    /* Footer */
+
+    .footer {
+      background: linear-gradient(135deg, rgba(108, 92, 231, 0.06) 0%, rgba(0, 206, 201, 0.08) 100%);
+      border-top: 1px solid var(--color-border);
+      padding: 48px 24px 32px;
+    }
+
+    @media (min-width: 768px) {
+      .footer { padding: 56px 48px 32px; }
+    }
+
+    .footer-contact {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .footer-contact h3 {
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--color-text);
+      margin-bottom: 24px;
+    }
+
+    .footer-contact-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-contact-list {
         flex-direction: row;
         justify-content: center;
-        gap: 40px;
+        gap: 32px;
       }
     }
 
     .contact-link {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 10px;
-      color: var(--color-teal);
+      gap: 8px;
+      color: var(--color-text-secondary);
       text-decoration: none;
-      font-size: 18px;
-      font-weight: 400;
-      transition: opacity 0.2s ease;
+      font-size: 16px;
+      transition: color 0.2s ease;
     }
 
     .contact-link:hover {
-      opacity: 0.8;
+      color: var(--color-purple);
     }
 
     .contact-link svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       flex-shrink: 0;
+      color: var(--color-purple);
     }
 
-    .contact-label {
-      font-size: 14px;
-      color: var(--color-text-muted);
-      margin-bottom: 4px;
-    }
-
-    .footer-logo {
-      width: 80px;
-      height: auto;
-      margin: 0 auto 24px;
-      display: block;
-      opacity: 0.7;
+    .footer-bottom {
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+      text-align: center;
     }
 
     .footer-copy {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--color-text-muted);
       letter-spacing: 0.01em;
     }
@@ -365,119 +439,119 @@
 </head>
 <body>
 
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="navbar-brand">
+        <img src="assets/tonale-bars-light.png" alt="Tonale" class="navbar-logo">
+        <span class="navbar-name">tonale</span>
+      </a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-switch-lang="en">EN</button>
+        <button class="lang-btn" data-switch-lang="pl">PL</button>
+        <button class="lang-btn" data-switch-lang="lt">LT</button>
+      </div>
+    </div>
+  </nav>
+
   <!-- Hero -->
   <section class="hero">
-    <div class="lang-switcher">
-      <button class="lang-btn active" data-switch-lang="en">EN</button>
-      <button class="lang-btn" data-switch-lang="pl">PL</button>
-      <button class="lang-btn" data-switch-lang="lt">LT</button>
-    </div>
-    <div class="container">
-      <img src="assets/tonale-final-light.svg" alt="Tonale" class="hero-logo">
-      <h1 data-lang="en">Building intelligent solutions</h1>
-      <h1 data-lang="pl">Tworzymy inteligentne rozwiązania</h1>
-      <h1 data-lang="lt">Kuriame išmanius sprendimus</h1>
-      <p data-lang="en">We craft AI-powered mobile, web, and desktop applications that solve real problems.</p>
-      <p data-lang="pl">Tworzymy aplikacje mobilne, webowe i desktopowe oparte na AI, które rozwiązują realne problemy.</p>
-      <p data-lang="lt">Kuriame AI pagrįstas mobiliąsias, internetines ir darbalaukio programas, kurios sprendžia realias problemas.</p>
-      <a href="mailto:info@tonale.lt" class="btn-primary" data-lang="en">Get in touch</a>
-      <a href="mailto:info@tonale.lt" class="btn-primary" data-lang="pl">Skontaktuj się</a>
-      <a href="mailto:info@tonale.lt" class="btn-primary" data-lang="lt">Susisiekite</a>
-    </div>
+    <img src="assets/tonale-final-light.svg" alt="Tonale" class="hero-icon">
+    <h1 data-lang="en">Building intelligent solutions</h1>
+    <h1 data-lang="pl">Tworzymy inteligentne rozwiązania</h1>
+    <h1 data-lang="lt">Kuriame išmanius sprendimus</h1>
+    <p data-lang="en">Innovative AI solutions, mobile, web, and macOS applications designed for the future.</p>
+    <p data-lang="pl">Innowacyjne rozwiązania AI, aplikacje mobilne, webowe i macOS zaprojektowane na przyszłość.</p>
+    <p data-lang="lt">Inovatyvūs AI sprendimai, mobiliosios, internetinės ir macOS programos, sukurtos ateičiai.</p>
+    <a href="mailto:info@tonale.lt" class="btn-primary" data-lang="en">Get in touch</a>
+    <a href="mailto:info@tonale.lt" class="btn-primary" data-lang="pl">Skontaktuj się</a>
+    <a href="mailto:info@tonale.lt" class="btn-primary" data-lang="lt">Susisiekite</a>
   </section>
 
   <!-- Services -->
-  <section class="services">
-    <div class="container">
-      <h2 class="section-heading" data-lang="en">What We Do</h2>
-      <h2 class="section-heading" data-lang="pl">Co robimy</h2>
-      <h2 class="section-heading" data-lang="lt">Ką mes darome</h2>
-      <div class="services-grid">
+  <section class="services-wrapper fade-in">
+    <h2 class="section-heading" data-lang="en">Our Services</h2>
+    <h2 class="section-heading" data-lang="pl">Nasze usługi</h2>
+    <h2 class="section-heading" data-lang="lt">Mūsų paslaugos</h2>
+    <p class="section-subtitle" data-lang="en">We specialize in building intelligent software solutions across various platforms, delivering excellence and innovation.</p>
+    <p class="section-subtitle" data-lang="pl">Specjalizujemy się w tworzeniu inteligentnych rozwiązań programistycznych na różne platformy, dostarczając doskonałość i innowacje.</p>
+    <p class="section-subtitle" data-lang="lt">Mes specializuojamės kuriant išmanias programinės įrangos sprendimus įvairioms platformoms, teikdami kokybę ir inovacijas.</p>
+    <div class="services-grid">
 
-        <div class="service-card fade-in">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
-          </svg>
-          <h3 data-lang="en">Mobile & Web Apps</h3>
-          <h3 data-lang="pl">Aplikacje mobilne i webowe</h3>
-          <h3 data-lang="lt">Mobiliosios ir internetinės programos</h3>
-          <p data-lang="en">Native and cross-platform applications designed for performance and great user experience.</p>
-          <p data-lang="pl">Natywne i wieloplatformowe aplikacje zaprojektowane z myślą o wydajności i doskonałym doświadczeniu użytkownika.</p>
-          <p data-lang="lt">Gimtosios ir daugiaplatformės programos, sukurtos našumui ir puikiai vartotojo patirčiai.</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0 1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 2.32.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0 1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/>
-            <path d="m15.7 10.4-1.7.9m-4 2.2-1.7.9m0-4.4 1.7.9m4 2.2 1.7.9M12 8v1.5m0 5V16"/><circle cx="12" cy="12" r="2"/>
-          </svg>
-          <h3 data-lang="en">AI & Orchestration</h3>
-          <h3 data-lang="pl">AI i orkiestracja</h3>
-          <h3 data-lang="lt">DI ir orkestravimas</h3>
-          <p data-lang="en">Intelligent systems powered by AI agents, LLMs, and automated workflows tailored to your needs.</p>
-          <p data-lang="pl">Inteligentne systemy oparte na agentach AI, LLM-ach i zautomatyzowanych procesach dostosowanych do Twoich potrzeb.</p>
-          <p data-lang="lt">Išmanios sistemos, veikiančios DI agentų, LLM ir automatizuotų darbo eigų pagrindu pagal jūsų poreikius.</p>
-        </div>
-
-        <div class="service-card fade-in">
-          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-          </svg>
-          <h3 data-lang="en">macOS Tooling</h3>
-          <h3 data-lang="pl">Narzędzia macOS</h3>
-          <h3 data-lang="lt">macOS įrankiai</h3>
-          <p data-lang="en">Productivity tools and utilities built specifically for the Apple ecosystem.</p>
-          <p data-lang="pl">Narzędzia produktywności stworzone specjalnie dla ekosystemu Apple.</p>
-          <p data-lang="lt">Produktyvumo įrankiai ir programos, sukurti specialiai Apple ekosistemai.</p>
-        </div>
-
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/>
+        </svg>
+        <h3 data-lang="en">Mobile Apps</h3>
+        <h3 data-lang="pl">Aplikacje mobilne</h3>
+        <h3 data-lang="lt">Mobiliosios programos</h3>
+        <p data-lang="en">Custom mobile applications for iOS and Android platforms, built with performance in mind.</p>
+        <p data-lang="pl">Dedykowane aplikacje mobilne na platformy iOS i Android, stworzone z myślą o wydajności.</p>
+        <p data-lang="lt">Mobiliosios programos iOS ir Android platformoms, sukurtos su dėmesiu našumui.</p>
       </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0 1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08A2.5 2.5 0 0 0 12 19.5a2.5 2.5 0 0 0 2.32.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0 1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 12 4.5"/>
+          <path d="m15.7 10.4-1.7.9m-4 2.2-1.7.9m0-4.4 1.7.9m4 2.2 1.7.9M12 8v1.5m0 5V16"/><circle cx="12" cy="12" r="2"/>
+        </svg>
+        <h3 data-lang="en">AI Solutions</h3>
+        <h3 data-lang="pl">Rozwiązania AI</h3>
+        <h3 data-lang="lt">DI sprendimai</h3>
+        <p data-lang="en">Intelligent AI and machine learning integrations to automate and enhance your business.</p>
+        <p data-lang="pl">Inteligentne integracje AI i uczenia maszynowego do automatyzacji i rozwoju Twojego biznesu.</p>
+        <p data-lang="lt">Išmanios DI ir mašininio mokymosi integracijos jūsų verslo automatizavimui ir tobulinimui.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <h3 data-lang="en">Web & Desktop</h3>
+        <h3 data-lang="pl">Web i desktop</h3>
+        <h3 data-lang="lt">Web ir darbalaukis</h3>
+        <p data-lang="en">Scalable web applications and native macOS desktop software tailored to your needs.</p>
+        <p data-lang="pl">Skalowalne aplikacje webowe i natywne oprogramowanie macOS dostosowane do Twoich potrzeb.</p>
+        <p data-lang="lt">Keičiamo dydžio internetinės programos ir gimtoji macOS programinė įranga pagal jūsų poreikius.</p>
+      </div>
+
     </div>
   </section>
 
   <!-- About -->
-  <section class="about">
-    <div class="container">
-      <h2 class="section-heading fade-in" data-lang="en">About Tonale</h2>
-      <h2 class="section-heading fade-in" data-lang="pl">O Tonale</h2>
-      <h2 class="section-heading fade-in" data-lang="lt">Apie Tonale</h2>
-      <div class="about-divider fade-in"></div>
-      <p class="fade-in" data-lang="en">Tonale is a software company based in Vilnius, Lithuania. We specialize in building modern applications powered by artificial intelligence and AI orchestration. Our name draws from the Italian mountain pass Passo del Tonale and the musical concept of tonality — a blend of nature, sound, and technology.</p>
-      <p class="fade-in" data-lang="pl">Tonale to firma programistyczna z siedzibą w Wilnie na Litwie. Specjalizujemy się w tworzeniu nowoczesnych aplikacji opartych na sztucznej inteligencji i orkiestracji AI. Nasza nazwa pochodzi od włoskiej przełęczy górskiej Passo del Tonale i muzycznego pojęcia tonalności — połączenia natury, dźwięku i technologii.</p>
-      <p class="fade-in" data-lang="lt">Tonale yra programinės įrangos įmonė, įsikūrusi Vilniuje, Lietuvoje. Mes specializuojamės kuriant modernias programas, pagrįstas dirbtiniu intelektu ir DI orkestravimu. Mūsų pavadinimas kildinamas iš Italijos kalnų perėja Passo del Tonale ir muzikines tonalumo sampratos — gamtos, garso ir technologijų derinys.</p>
-    </div>
+  <section class="about fade-in">
+    <h2 class="section-heading" data-lang="en">About Tonale</h2>
+    <h2 class="section-heading" data-lang="pl">O Tonale</h2>
+    <h2 class="section-heading" data-lang="lt">Apie Tonale</h2>
+    <div class="about-divider"></div>
+    <p data-lang="en">Based in Vilnius, Tonale is an IT software company dedicated to crafting high-quality, intelligent solutions. Our focus spans from artificial intelligence to mobile, web, and macOS applications, ensuring our clients stay ahead in the ever-evolving digital landscape.</p>
+    <p data-lang="pl">Tonale z siedzibą w Wilnie to firma programistyczna zajmująca się tworzeniem wysokiej jakości, inteligentnych rozwiązań. Nasz zakres obejmuje sztuczną inteligencję, aplikacje mobilne, webowe i macOS, pomagając klientom utrzymać przewagę w dynamicznie zmieniającym się cyfrowym świecie.</p>
+    <p data-lang="lt">Vilniuje įsikūrusi Tonale yra IT programinės įrangos įmonė, kurianti aukštos kokybės, išmanius sprendimus. Mūsų veikla apima dirbtinį intelektą, mobiliąsias, internetines ir macOS programas.</p>
   </section>
 
-  <!-- Contact & Footer -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <h2 class="section-heading fade-in" data-lang="en">Get in Touch</h2>
-      <h2 class="section-heading fade-in" data-lang="pl">Skontaktuj się</h2>
-      <h2 class="section-heading fade-in" data-lang="lt">Susisiekite su mumis</h2>
-      <div class="contact-links fade-in">
-        <div>
-          <div class="contact-label" data-lang="en">Email</div>
-          <div class="contact-label" data-lang="pl">Email</div>
-          <div class="contact-label" data-lang="lt">El. paštas</div>
+      <div class="footer-contact">
+        <h3 data-lang="en">Get in Touch</h3>
+        <h3 data-lang="pl">Kontakt</h3>
+        <h3 data-lang="lt">Susisiekite</h3>
+        <div class="footer-contact-list">
           <a href="mailto:info@tonale.lt" class="contact-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             info@tonale.lt
           </a>
-        </div>
-        <div>
-          <div class="contact-label" data-lang="en">Phone</div>
-          <div class="contact-label" data-lang="pl">Telefon</div>
-          <div class="contact-label" data-lang="lt">Telefonas</div>
           <a href="tel:+37060583918" class="contact-link">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             +370 605 83918
           </a>
         </div>
       </div>
-      <img src="assets/tonale-final-dark.svg" alt="Tonale" class="footer-logo" onerror="this.src='assets/tonale-final-icon.svg'">
+    <div class="footer-bottom">
       <p class="footer-copy" data-lang="en">© 2026 MB "Tonale". All rights reserved.</p>
       <p class="footer-copy" data-lang="pl">© 2026 MB "Tonale". Wszelkie prawa zastrzeżone.</p>
       <p class="footer-copy" data-lang="lt">© 2026 MB "Tonale". Visos teisės saugomos.</p>
+    </div>
     </div>
   </footer>
 
@@ -485,7 +559,11 @@
     function setLang(lang) {
       document.documentElement.lang = lang;
       document.querySelectorAll('[data-lang]').forEach(function(el) {
-        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+        if (el.getAttribute('data-lang') === lang) {
+          el.classList.add('lang-visible');
+        } else {
+          el.classList.remove('lang-visible');
+        }
       });
       document.querySelectorAll('.lang-btn').forEach(function(btn) {
         btn.classList.toggle('active', btn.getAttribute('data-switch-lang') === lang);

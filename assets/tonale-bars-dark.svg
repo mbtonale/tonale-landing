@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 404 500" width="404" height="500">
+  <defs><linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#6c5ce7"/><stop offset="100%" stop-color="#00cec9"/></linearGradient></defs>
+  <rect width="404" height="500" fill="#0a0f1a"/>
+  <rect x="0" y="395" width="24" height="105" rx="12" fill="url(#g)" opacity="0.3"/>
+  <rect x="38" y="312" width="24" height="188" rx="12" fill="url(#g)" opacity="0.4"/>
+  <rect x="76" y="230" width="24" height="270" rx="12" fill="url(#g)" opacity="0.5"/>
+  <rect x="114" y="145" width="24" height="355" rx="12" fill="url(#g)" opacity="0.65"/>
+  <rect x="152" y="62" width="24" height="438" rx="12" fill="url(#g)" opacity="0.8"/>
+  <rect x="190" y="0" width="24" height="500" rx="12" fill="url(#g)" opacity="1.0"/>
+  <rect x="228" y="62" width="24" height="438" rx="12" fill="url(#g)" opacity="0.8"/>
+  <rect x="266" y="145" width="24" height="355" rx="12" fill="url(#g)" opacity="0.65"/>
+  <rect x="304" y="230" width="24" height="270" rx="12" fill="url(#g)" opacity="0.5"/>
+  <rect x="342" y="312" width="24" height="188" rx="12" fill="url(#g)" opacity="0.4"/>
+  <rect x="380" y="395" width="24" height="105" rx="12" fill="url(#g)" opacity="0.3"/>
+</svg>
